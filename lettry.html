@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rotating 3D Table</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      canvas {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="https://threejs.org/build/three.js"></script>
+    <script>
+      // Set up the scene
+      var scene = new THREE.Scene();
+      var camera = new THREE.PerspectiveCamera(
+        75,
+        window.innerWidth / window.innerHeight,
+        0.1,
+        1000
+      );
+      var renderer = new THREE.WebGLRenderer();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      document.body.appendChild(renderer.domElement);
+
+      // Create a table
+      var tableGeometry = new THREE.BoxGeometry(2, 0.1, 2);
+      var tableMaterial = new THREE.MeshBasicMaterial({
+        color: 0x00ff00,
+        wireframe: true,
+      });
+      var table = new THREE.Mesh(tableGeometry, tableMaterial);
+      scene.add(table);
+
+      // Set the camera position
+      camera.position.z = 5;
+
+      // Add ambient light
+      var ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+      scene.add(ambientLight);
+
+      // Add directional light
+      var directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+      scene.add(directionalLight);
+
+      // Function to handle window resize
+      function onWindowResize() {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+      }
+
+      window.addEventListener("resize", onWindowResize, false);
+
+      // Animation function
+      function animate() {
+        requestAnimationFrame(animate);
+
+        // Rotate the table
+        table.rotation.x += 0.01;
+        table.rotation.y += 0.01;
+
+        renderer.render(scene, camera);
+      }
+
+      // Call the animate function
+      animate();
+    </script>
+  </body>
+</html>

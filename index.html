@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="s.css" />
+    <title>NAZIIIIII</title>
+  </head>
+
+  <body>
+    <header>
+      <h1>Fast Food Company</h1>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="cart-box" id="shopping-cart">
+        🛒 brokee 
+       
+        <div id="cart-items"></div>
+      </div>
+      
+
+    </header>
+  
+    <section id="home">
+      <h2>Welcome to Fast Food Company</h2>
+      <p>Delicious food delivered fast!</p>
+    </section>
+  
+    <section id="menu">
+      <h2>Menu</h2>
+      <div id="menu-items" class="menu-container">
+        
+        <div class="menu-item">
+          <img src="burger.jpg" alt="Burger" />
+          <h3>Burger</h3>
+          <p>Classic beef burger with ketchup and mustard.</p>
+          <button onclick="buyNow('Burger', '$5.99')">Buy Now</button>
+        </div>
+        <div class="menu-item">
+            <img src="burger.jpg" alt="Burger" />
+            <a href=""><h3>Burger</h3></a>
+            
+            <p>Classic beef burger with ketchup and mustard.</p>
+            <button onclick="buyNow('1bitch', '$5.99')">Buy Now</button>
+          </div>
+          <div class="menu-item">
+            <img src="burger.jpg" alt="Burger" />
+            <h3>Burger</h3>
+            <p>Classic beef burger with ketchup and mustard.</p>
+            <button onclick="buyNow('5bithces', '$9.99')">Buy Now</button>
+          </div>
+          <div class="menu-item">
+            <img src="burger.jpg" alt="Burger" />
+            <h3>Burger</h3>
+            <p>Classic beef burger with ketchup and mustard.</p>
+            <button onclick="buyNow('500bitches', '$5.99')">Buy Now</button>
+          </div>
+        <!-- div class="menu-item">
+            <img src="burger.jpg" alt="Burger" />
+            <h3>Burger</h3>
+            <p>Classic beef burger with ketchup and mustard.</p>
+            <button onclick="buyNow('Burger', '$5.99')">Buy Now</button>
+          </div> JUST COPY PASTE THAT TO ADD MORE -->
+    </div>
+    
+
+    
+
+    <section id="about">
+      <h2>About Us</h2>
+      <p>hajde paska dal flak faree</p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <p>keni pyetje... edhe une</p>
+    </section>
+
+    <footer>
+      <p>&copy; byeee</p>
+    </footer>
+    <button id="scrollToTopBtn" onclick="scrollToTop()">ZJARRRRRRRRR LART</button>
+
+
+    <script >
+         var mybutton = document.getElementById("scrollToTopBtn");
+
+// SCROLL UP BUTTON ITS SET AT 50PX U CAN CHANGE 3 LINBES BELLOW
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function scrollToTop() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+        const shoppingCart = document.getElementById("shopping-cart");
+    const cartItems = document.getElementById("cart-items");
+
+    // THIS IS WHEN U BUY STH
+    function buyNow(name, price) {
+      alert(`You have purchased  ${name} for ${price}`);
+      updateCart(name, price);
+    }
+    function updateCart(name, price) {
+  const cartItemsDiv = document.getElementById("cart-items");
+  
+  // Create a new div for the cart item
+  const cartItemDiv = document.createElement("div");
+  cartItemDiv.className = "cart-item";
+  
+ 
+ cartItemDiv.innerHTML = `<p>${name} - ${price}</p>`;
+  
+  // Append the cart item to the cartItemsDiv
+  cartItemsDiv.appendChild(cartItemDiv);
+
+
+
+ 
+
+ 
+}
+
+
+
+   
+    </script>
+  </body>
+</html>
